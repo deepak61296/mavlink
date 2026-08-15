@@ -2067,5 +2067,16 @@
       <field type="char[10]" name="name" instance="true">Name of the debug variable</field>
       <field type="char[64]" name="value">Value of the debug variable</field>
     </message>
+    <message id="11061" name="COMPANION_HEALTH">
+        <description>Companion computer health report sent periodically to flight controller.</description>
+        <field type="uint32_t" name="services_status">Bitmask of critical service states, bit set = service running.</field>
+        <field type="uint16_t" name="watchdog_seq">Increments each send, FC uses this to detect companion stall.</field>
+        <field type="int16_t" name="temperature">Board temperature in celsius * 10.</field>
+        <field type="uint8_t" name="cpu_load" units="%">CPU load 0-100.</field>
+        <field type="uint8_t" name="memory_used" units="%">RAM usage 0-100.</field>
+        <field type="uint8_t" name="disk_used" units="%">Disk usage 0-100.</field>
+        <field type="uint8_t" name="gpu_load" units="%">GPU load 0-100, 255 if not available.</field>
+        <field type="uint8_t" name="status_flags">Bit0=throttled, Bit1=overheating, Bit2=low memory, Bit3=low disk.</field>
+    </message>
   </messages>
 </mavlink>
